@@ -1,0 +1,23 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+body {
+  font-family: Arial, sans-serif;
+}
+#todo-list {
+  max-width: 400px;
+  margin: 0 auto;
+}
+.todo-item {
+  margin: 5px 0;
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+.completed {
+  text-decoration: line-through;
+  color: #999;
+}
