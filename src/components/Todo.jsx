@@ -37,15 +37,16 @@ function TodoComponent({ todo, onUpdate, onDelete, children }) {
           checked={thisTodo.completed}
           onChange={onTodoChange}
         ></input>
+
         {isEdit ? (
           <>
-            <input defaultValue={thisTodo.title} onChange={onTodoTitleChange} />
+            <input defaultValue={todo.title} onChange={onTodoTitleChange} />
             <button onClick={onSave}>Save</button>
             <button onClick={onCancelClick}>Cancel</button>
           </>
         ) : (
           <>
-            <span className="title">{thisTodo.title}</span>
+            <span className="title">{todo.title}</span>
             <span className="created-at"></span>
             <button onClick={onEditClick}>Edit</button>
             <button onClick={onDeleteClick}>Delete</button>

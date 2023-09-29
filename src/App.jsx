@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import TodoComponent from './components/todo';
+import TodoComponent from './Components/Todo';
 import Home from './Home';
 import Book from './Book';
 
@@ -21,10 +21,8 @@ function App() {
 
   const deleteTodo = (deleteTodo) => {
     const temp = [...todoList];
-
     const todoIndex = temp.findIndex((todo) => todo.id == deleteTodo.id);
     temp.splice(todoIndex, 1);
-
     setTodoList(temp);
   };
 
@@ -41,7 +39,7 @@ function App() {
   return (
     <>
       <div id="todo-list">
-        <h2>To-Do List</h2>
+        <h2>To-Do </h2>
         <div id="todos">
           {todoList.map((todo) => (
             <TodoComponent
