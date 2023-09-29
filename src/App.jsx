@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css';
-import TodoComponent from './components/Todo';
+import TodoComponent from './components/todo';
 import Home from './Home';
 import Book from './Book';
 
@@ -15,10 +15,8 @@ function App() {
   const updateTodo = (newTodo) => {
     const temp = [...todoList];
     const todoIndex = todoList.findIndex((todo) => todo.id === newTodo.id);
-
     temp.splice(todoIndex, 1, newTodo);
     setTodoList(temp);
-    console.log(temp);
   };
 
   const deleteTodo = (deleteTodo) => {

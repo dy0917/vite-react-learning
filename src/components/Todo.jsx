@@ -2,13 +2,32 @@ import { useState } from 'react';
 
 function TodoComponent({ todo, onUpdate, onDelete, children }) {
   const [thisTodo, setTodo] = useState(todo);
+  const [isEdit, setIsEdit] = useState(false);
   const onTodoChange = (event) => {
     const updateTodo = { ...thisTodo, completed: event.target.checked };
     setTodo(updateTodo);
     onUpdate(updateTodo);
   };
+
+  const onTodoTitleChange = (event) => {
+    const updateTodo = { ...thisTodo, title: event.target.value };
+    setTodo(updateTodo);
+  };
+
+  const onSave = () => {
+    onUpdate(thisTodo);
+    setIsEdit(false);
+  };
+
   const onDeleteClick = () => {
     onDelete(thisTodo);
+  };
+
+  const onEditClick = () => {
+    setIsEdit(true);
+  };
+  const onCancelClick = () => {
+    setIsEdit(false);
   };
   return (
     <>
@@ -18,13 +37,21 @@ function TodoComponent({ todo, onUpdate, onDelete, children }) {
           checked={thisTodo.completed}
           onChange={onTodoChange}
         ></input>
-
-        <span className="title">{thisTodo.title}</span>
-        <span className="created-at"></span>
-        <button>Edit</button>
-        <button onClick={onDeleteClick}>Delete</button>
+        {isEdit ? (
+          <>
+            <input defaultValue={thisTodo.title} onChange={onTodoTitleChange} />
+            <button onClick={onSave}>Save</button>
+            <button onClick={onCancelClick}>Cancel</button>
+          </>
+        ) : (
+          <>
+            <span className="title">{thisTodo.title}</span>
+            <span className="created-at"></span>
+            <button onClick={onEditClick}>Edit</button>
+            <button onClick={onDeleteClick}>Delete</button>
+          </>
+        )}
       </div>
-      {children}
     </>
   );
 }
