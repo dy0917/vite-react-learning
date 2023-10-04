@@ -1,5 +1,13 @@
+import { useUserContext } from './Store/UserContext';
+
 const Home = ({ children }) => {
-  return <div>this is home element {children}</div>;
+  const { currentUser, handleUpdateUser } = useUserContext();
+  return (
+    <>
+      <div>this is home element {children}</div>
+      {currentUser.email}
+    </>
+  );
 };
 
 export default Home;
