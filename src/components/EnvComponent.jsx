@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-import reducer from '../Store/Reducers/StateReducer';
+import reducer from '../Store/Reducers/CounterReducer';
 import { useUserContext } from '../Store/UserContext';
 
 function Env({ env }) {

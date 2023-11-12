@@ -10,7 +10,6 @@ function ReduxTodoList() {
   const { entities: todosA, status } = useSelector((state) => state.todo);
   const todos = useSelector(selectTodos);
 
-  console.log('todos', todos, status);
   const [todoList, setTodoList] = useState([
     { id: 1, title: 'title', completed: true, createdAt },
     { id: 2, title: 'title2', completed: false, createdAt },
@@ -37,7 +36,6 @@ function ReduxTodoList() {
     <>
       <div id="todo-list">
         <h2>To-Do </h2>
-
         <div id="todos">
           {todos.map((todo) => (
             <TodoComponent

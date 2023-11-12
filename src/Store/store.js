@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './Reducers';
-// import todosReducer from './Reducers/TodoListReducer';
 
 // The store now has the ability to accept thunk functions in `dispatch`
 const store = configureStore({

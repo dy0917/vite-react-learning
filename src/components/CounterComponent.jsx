@@ -1,16 +1,15 @@
-import { useReducer } from 'react';
-
-import reducer from '../Store/Reducers/StateReducer';
-import { useUserContext } from '../Store/UserContext';
+import { useCounterContext } from '../Store/CounterContext';
 
 function Counter() {
-  const [counter, dispatch] = useReducer(reducer, 0);
-  const { currentUser, handleUpdateUser } = useUserContext();
+  const { counter, dispatch } = useCounterContext();
 
   const handleIncrement = () => {
-    handleUpdateUser({ email: 'user@test.com' });
     // we call the dispatch function to make all state updates
     dispatch({ type: 'increment' });
+  };
+  const handleIncrement10 = () => {
+    // we call the dispatch function to make all state updates
+    dispatch({ type: 'increment10' });
   };
 
   const handleDecrement = () => {
@@ -21,9 +20,9 @@ function Counter() {
   return (
     <>
       <div className="ReducerCounter componentBox">
-        {currentUser.email}
         <h2>Count: {counter}</h2>
         <button onClick={handleIncrement}>Reducer Increment</button>
+        <button onClick={handleIncrement10}>Reducer Increment 10</button>
         <button onClick={handleDecrement}>Reducer Decrement</button>
       </div>
     </>

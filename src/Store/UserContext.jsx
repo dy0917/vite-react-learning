@@ -7,11 +7,15 @@ const UserContext = React.createContext();
 // Use it in App.jsx like <UserProvider>...</UserProvider>
 export const UserProvider = (props) => {
   // store the current user in state at the top level
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({ email: null, token: null });
 
   // sets user object in state, shared via context
   const handleUpdateUser = (user) => {
-    setCurrentUser(user);
+    setCurrentUser({ ...currentUser, ...user });
+  };
+
+  const handleUserToken = (token) => {
+    setCurrentUser({ ...currentUser, ...{ token } });
   };
 
   // 2. Provide the context.
@@ -19,7 +23,9 @@ export const UserProvider = (props) => {
   // sends data via its value prop to all children at every level.
   // We are sending both the current user and an update function
   return (
-    <UserContext.Provider value={{ currentUser, handleUpdateUser }}>
+    <UserContext.Provider
+      value={{ currentUser, handleUpdateUser, handleUserToken }}
+    >
       {props.children}
     </UserContext.Provider>
   );

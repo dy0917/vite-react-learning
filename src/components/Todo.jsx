@@ -14,6 +14,9 @@ function TodoComponent({ todo, onUpdate, onDelete, children }) {
     setTodo(updateTodo);
   };
 
+  const aString = 'asdfasfdhjkaslfdhasd';
+  const bSTring = 'asdfasfasf';
+
   const onSave = () => {
     onUpdate(thisTodo);
     setIsEdit(false);

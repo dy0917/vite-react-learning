@@ -15,10 +15,10 @@ function LoginForm() {
     e.preventDefault(); // prevent page reloading on form submit
     console.log('formInfo', formInfo);
     const data = new FormData(e.target);
-    console.log(Object.fromEntries(data));
+    const formObject = Object.fromEntries(data.entries());
+    console.log('formObject', formObject);
   };
 
-  console.log('render');
   const validation = (formInfo) => {
     try {
       if (!formInfo.email) {
